@@ -334,7 +334,7 @@ def plot_genre_distribution(df: pd.DataFrame, save_path: str = "genre_dist.png")
 # ─────────────────────────────────────────────
 def main():
     # ── Load & explore data ──────────────────
-    df = pd.read_csv(Config.CSV_PATH)
+    df = pd.read_csv(Config.CSV_PATH, encoding="latin-1")
     print(f"Dataset size: {len(df)} movies")
     print(df.head(3))
     print("\nGenre value counts (top 15):")
