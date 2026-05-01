@@ -71,20 +71,18 @@ def load_fixed_split_dataframes() -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFr
     """
     Return train_df, val_df, test_df, mlb with mlb fit on full cleaned data.
 
-    Splits are defined by integer row_id into the cleaned dataframe (same ordering as
-    ``generate_splits.py``), so rows are unique even if ``imdbId`` repeats in the CSV.
+    Each splits CSV contains all original columns from MovieGenre.csv (after cleaning),
+    written directly by generate_splits.py. mlb is fit on the full cleaned dataframe
+    so genre class order is stable regardless of which split is loaded first.
     """
     df = load_cleaned_dataframe()
     mlb = fit_mlb_on_full_cleaned(df)
 
-    train_rows = pd.read_csv(SPLITS_DIR / "train_rows.csv")["row_id"]
-    val_rows = pd.read_csv(SPLITS_DIR / "val_rows.csv")["row_id"]
-    test_rows = pd.read_csv(SPLITS_DIR / "test_rows.csv")["row_id"]
+    train_df = pd.read_csv(SPLITS_DIR / "train_rows.csv", encoding="latin-1")
+    val_df = pd.read_csv(SPLITS_DIR / "val_rows.csv", encoding="latin-1")
+    test_df = pd.read_csv(SPLITS_DIR / "test_rows.csv", encoding="latin-1")
 
-    train_df = df.loc[train_rows].reset_index(drop=True)
-    val_df = df.loc[val_rows].reset_index(drop=True)
-    test_df = df.loc[test_rows].reset_index(drop=True)
-    return train_df, val_df, test_df, mlb
+    return train_df.reset_index(drop=True), val_df.reset_index(drop=True), test_df.reset_index(drop=True), mlb
 
 
 def validate_metrics_payload(payload: Dict[str, Any]) -> None:

@@ -35,13 +35,13 @@ def main() -> None:
     val_df, test_df = train_test_split(temp_df, test_size=0.5, random_state=SEED)
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    # Use row indices into the cleaned dataframe so splits stay 1:1 even if imdbId repeats.
-    pd.DataFrame({"row_id": train_df.index}).to_csv(OUT_DIR / "train_rows.csv", index=False)
-    pd.DataFrame({"row_id": val_df.index}).to_csv(OUT_DIR / "val_rows.csv", index=False)
-    pd.DataFrame({"row_id": test_df.index}).to_csv(OUT_DIR / "test_rows.csv", index=False)
+    train_df.to_csv(OUT_DIR / "train_rows.csv", index=False)
+    val_df.to_csv(OUT_DIR / "val_rows.csv", index=False)
+    test_df.to_csv(OUT_DIR / "test_rows.csv", index=False)
 
     print(f"Wrote splits to {OUT_DIR}")
     print(f"Train: {len(train_df)} | Val: {len(val_df)} | Test: {len(test_df)}")
+    print(f"Columns: {list(train_df.columns)}")
 
 
 if __name__ == "__main__":
