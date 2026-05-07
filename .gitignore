@@ -20,5 +20,9 @@ training_curves.png
 Thumbs.db
 *Zone.Identifier
 
+# Cleaned data workflow
+cleaned/downloaded_posters/
+cleaned/MovieGenre_clean_with_images.csv
+
 # Optional: uncomment if you do not want metrics in git
 # results/*_metrics.json

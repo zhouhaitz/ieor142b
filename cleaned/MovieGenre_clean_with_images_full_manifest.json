@@ -1,0 +1,15 @@
+{
+  "created_at_utc": "2026-05-06T23:59:45.940803+00:00",
+  "source_csv": "MovieGenre.csv",
+  "canonical_variant": "strict_imdbId_only",
+  "canonical_clean_csv": "cleaned/MovieGenre_clean_with_images_full.csv",
+  "rows_raw": 40108,
+  "rows_after_dropna_genre": 39963,
+  "rows_strict": 10875,
+  "unique_genres_strict": 24,
+  "strict_match_source_counts": {
+    "imdbId": 10875
+  },
+  "splits_strict_dir": "splits_cleaned",
+  "seed": 42
+}
