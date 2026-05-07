@@ -2,6 +2,8 @@
 
 Multi-label movie genre classification from poster images.
 
+Start here after pull: see `TEAM_DATA_SETUP.md`.
+
 ## Baseline reference (do not edit casually)
 
 - **`main.py`** — canonical script implementation; treat as the reference for data cleaning, splits logic, metrics, and training loop.
@@ -20,6 +22,22 @@ Helpers and JSON schema for saved metrics: see **`experimentation/shared.py`** a
 
 **After experiments:** open **`final_comparison.ipynb`** to load all `results/*_metrics.json` files and compare models.
 
+## Shared cleaned dataset (recommended for experiments)
+
+If your model should only use rows with confirmed image files, use:
+
+- **Canonical strict CSV:** `cleaned/MovieGenre_clean_with_images_full.csv` — **only** rows where the image was resolved via **`imdbId`** (highest confidence).
+- **Manifest:** `cleaned/MovieGenre_clean_with_images_full_manifest.json`
+- **Splits:** `splits_cleaned/` — generated from the strict CSV.
+
+These artifacts are produced by `scripts/data_cleaning.ipynb`. You can regenerate splits with `scripts/generate_splits.py` (same `random_state=42` split logic as `main.py`).
+
+After `git pull`, teammates should run:
+
+```bash
+python scripts/fetch_cleaned_images.py
+```
+
 ## Regenerating splits (only if `MovieGenre.csv` changes)
 
 From repo root **`ieor142b/`**:
@@ -29,3 +47,14 @@ python scripts/generate_splits.py
 ```
 
 Commit the updated CSVs in `splits/` so everyone stays aligned.
+
+To regenerate splits for the cleaned strict dataset:
+
+```bash
+python scripts/generate_splits.py \
+  --csv-path cleaned/MovieGenre_clean_with_images_full.csv \
+  --out-dir splits_cleaned \
+  --seed 42
+```
+
+`splits/` remains the **legacy** baseline splits for the full raw `MovieGenre.csv` (see `splits/README.md`). Use `splits_cleaned/` for image-filtered experiments.
