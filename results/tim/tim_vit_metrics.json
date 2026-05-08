@@ -1,0 +1,15 @@
+{
+  "model_name": "vit_lora",
+  "seed": 42,
+  "img_size": 224,
+  "train_size": 8700,
+  "val_size": 1087,
+  "test_size": 1088,
+  "best_val_f1": 0.4300100803375244,
+  "test_f1": 0.43140920996665955,
+  "test_precision": 0.3686252534389496,
+  "test_recall": 0.586397111415863,
+  "test_exact_match": 0.016544118523597717,
+  "num_epochs_run": 16,
+  "notes": "tier=full; model=vit_base_patch16_224; lora_r=8; lora_alpha=16; lora_dropout=0.1; threshold=0.45; focal=False; max_wallclock_minutes=330"
+}

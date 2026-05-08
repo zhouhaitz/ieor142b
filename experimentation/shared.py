@@ -19,6 +19,9 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 SPLITS_DIR = PROJECT_ROOT / "splits"
 CSV_PATH = PROJECT_ROOT / "MovieGenre.csv"
 POSTER_DIR = PROJECT_ROOT / "SampleMoviePosters"
+STRICT_SPLITS_DIR = PROJECT_ROOT / "splits_cleaned"
+STRICT_CSV_PATH = PROJECT_ROOT / "cleaned" / "MovieGenre_clean_with_images_full.csv"
+STRICT_POSTER_DIR = PROJECT_ROOT / "cleaned" / "downloaded_posters"
 
 BASELINE: Dict[str, Any] = {
     "csv_path": "MovieGenre.csv",
@@ -28,6 +31,19 @@ BASELINE: Dict[str, Any] = {
     "dropna_columns": ["Genre"],
     "train_fraction": 0.8,
     "val_fraction_of_holdout": 0.5,  # val/test each 10% of full data
+    "focal_alpha": 0.25,
+    "focal_gamma": 2.0,
+    "metric_threshold": 0.5,
+}
+
+STRICT_BASELINE: Dict[str, Any] = {
+    "csv_path": "cleaned/MovieGenre_clean_with_images_full.csv",
+    "poster_dir": "cleaned/downloaded_posters",
+    "img_size": 224,
+    "seed": 42,
+    "dropna_columns": ["Genre"],
+    "train_fraction": 0.8,
+    "val_fraction_of_holdout": 0.5,  # val/test each 10% of strict cleaned data
     "focal_alpha": 0.25,
     "focal_gamma": 2.0,
     "metric_threshold": 0.5,
@@ -67,6 +83,18 @@ def fit_mlb_on_full_cleaned(df: pd.DataFrame) -> MultiLabelBinarizer:
     return mlb
 
 
+def load_strict_cleaned_dataframe() -> pd.DataFrame:
+    df = pd.read_csv(STRICT_CSV_PATH, encoding="latin-1")
+    return df.dropna(subset=STRICT_BASELINE["dropna_columns"]).reset_index(drop=True)
+
+
+def fit_mlb_on_full_strict_cleaned(df: pd.DataFrame) -> MultiLabelBinarizer:
+    genre_lists = df["Genre"].str.split("|").tolist()
+    mlb = MultiLabelBinarizer()
+    mlb.fit(genre_lists)
+    return mlb
+
+
 def load_fixed_split_dataframes() -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, MultiLabelBinarizer]:
     """
     Return train_df, val_df, test_df, mlb with mlb fit on full cleaned data.
@@ -81,6 +109,23 @@ def load_fixed_split_dataframes() -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFr
     train_df = pd.read_csv(SPLITS_DIR / "train_rows.csv", encoding="latin-1")
     val_df = pd.read_csv(SPLITS_DIR / "val_rows.csv", encoding="latin-1")
     test_df = pd.read_csv(SPLITS_DIR / "test_rows.csv", encoding="latin-1")
+
+    return train_df.reset_index(drop=True), val_df.reset_index(drop=True), test_df.reset_index(drop=True), mlb
+
+
+def load_strict_split_dataframes() -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, MultiLabelBinarizer]:
+    """
+    Return strict train_df, val_df, test_df, mlb using cleaned image-confirmed artifacts.
+
+    MLB is fit on the full strict cleaned dataframe so class order is stable and aligns
+    with shared team contract for multi-label output comparisons.
+    """
+    df = load_strict_cleaned_dataframe()
+    mlb = fit_mlb_on_full_strict_cleaned(df)
+
+    train_df = pd.read_csv(STRICT_SPLITS_DIR / "train_rows.csv", encoding="latin-1")
+    val_df = pd.read_csv(STRICT_SPLITS_DIR / "val_rows.csv", encoding="latin-1")
+    test_df = pd.read_csv(STRICT_SPLITS_DIR / "test_rows.csv", encoding="latin-1")
 
     return train_df.reset_index(drop=True), val_df.reset_index(drop=True), test_df.reset_index(drop=True), mlb
 

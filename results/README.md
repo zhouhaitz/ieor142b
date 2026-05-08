@@ -4,11 +4,12 @@ Each experiment notebook should write one file here after training, e.g.:
 
 | File | Owner / model |
 |------|----------------|
-| `tim_vit_metrics.json` | Tim — ViT |
+| `tim/tim_vit_metrics.json` | Tim — ViT |
 | `hannah_scratch_cnn_metrics.json` | Hannah — CNN from scratch |
 | `xenia_resnet_metrics.json` | Xenia — ResNet fine-tune |
 
 Use `experimentation.shared.save_metrics_json()` so required fields stay consistent.
+Subfolders under `results/` are allowed for owner-specific organization (for example `results/tim/`).
 
 ```json
 {

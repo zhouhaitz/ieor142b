@@ -20,7 +20,8 @@ Experiments (ViT, scratch CNN, ResNet fine-tune) live under **`experimentation/`
 
 Helpers and JSON schema for saved metrics: see **`experimentation/shared.py`** and **`results/README.md`**.
 
-**After experiments:** open **`final_comparison.ipynb`** to load all `results/*_metrics.json` files and compare models.
+**After experiments:** open **`final_comparison.ipynb`** to load all metrics JSON files and compare models.
+Tim's ViT artifacts now live under `experimentation/tim/` and `results/tim/`.
 
 ## Shared cleaned dataset (recommended for experiments)
 
