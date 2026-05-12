@@ -1,0 +1,178 @@
+[
+  {
+    "threshold": 0.05,
+    "precision": 0.1257556974887848,
+    "recall": 0.9886537790298462,
+    "f1": 0.22044935822486877,
+    "exact_match": 0.0,
+    "pred_labels_per_sample": 18.56117820739746,
+    "true_labels_per_sample": 2.3376264572143555,
+    "mean_prob": 0.19140625,
+    "max_prob": 0.92431640625
+  },
+  {
+    "threshold": 0.1,
+    "precision": 0.15503287315368652,
+    "recall": 0.9536951184272766,
+    "f1": 0.26162832975387573,
+    "exact_match": 0.0,
+    "pred_labels_per_sample": 14.82336711883545,
+    "true_labels_per_sample": 2.3376264572143555,
+    "mean_prob": 0.19140625,
+    "max_prob": 0.92431640625
+  },
+  {
+    "threshold": 0.15,
+    "precision": 0.20403869450092316,
+    "recall": 0.8986507654190063,
+    "f1": 0.32218247652053833,
+    "exact_match": 0.0009199631749652326,
+    "pred_labels_per_sample": 10.999079704284668,
+    "true_labels_per_sample": 2.3376264572143555,
+    "mean_prob": 0.19140625,
+    "max_prob": 0.92431640625
+  },
+  {
+    "threshold": 0.2,
+    "precision": 0.2458469420671463,
+    "recall": 0.8455995917320251,
+    "f1": 0.3673120141029358,
+    "exact_match": 0.0018399263499304652,
+    "pred_labels_per_sample": 8.593376159667969,
+    "true_labels_per_sample": 2.3376264572143555,
+    "mean_prob": 0.19140625,
+    "max_prob": 0.92431640625
+  },
+  {
+    "threshold": 0.25,
+    "precision": 0.2864903211593628,
+    "recall": 0.7900950908660889,
+    "f1": 0.4042320251464844,
+    "exact_match": 0.0027598896995186806,
+    "pred_labels_per_sample": 6.842686176300049,
+    "true_labels_per_sample": 2.3376264572143555,
+    "mean_prob": 0.19140625,
+    "max_prob": 0.92431640625
+  },
+  {
+    "threshold": 0.3,
+    "precision": 0.32581791281700134,
+    "recall": 0.734897255897522,
+    "f1": 0.4332316517829895,
+    "exact_match": 0.009199632331728935,
+    "pred_labels_per_sample": 5.509659767150879,
+    "true_labels_per_sample": 2.3376264572143555,
+    "mean_prob": 0.19140625,
+    "max_prob": 0.92431640625
+  },
+  {
+    "threshold": 0.35,
+    "precision": 0.3586348593235016,
+    "recall": 0.6706531643867493,
+    "f1": 0.4474078118801117,
+    "exact_match": 0.01931922696530819,
+    "pred_labels_per_sample": 4.466421127319336,
+    "true_labels_per_sample": 2.3376264572143555,
+    "mean_prob": 0.19140625,
+    "max_prob": 0.92431640625
+  },
+  {
+    "threshold": 0.4,
+    "precision": 0.39733651280403137,
+    "recall": 0.5886231064796448,
+    "f1": 0.4504629075527191,
+    "exact_match": 0.029438821598887444,
+    "pred_labels_per_sample": 3.482980728149414,
+    "true_labels_per_sample": 2.3376264572143555,
+    "mean_prob": 0.19140625,
+    "max_prob": 0.92431640625
+  },
+  {
+    "threshold": 0.45,
+    "precision": 0.4328426718711853,
+    "recall": 0.5070530772209167,
+    "f1": 0.4360056221485138,
+    "exact_match": 0.04231830686330795,
+    "pred_labels_per_sample": 2.701011896133423,
+    "true_labels_per_sample": 2.3376264572143555,
+    "mean_prob": 0.19140625,
+    "max_prob": 0.92431640625
+  },
+  {
+    "threshold": 0.5,
+    "precision": 0.4469641149044037,
+    "recall": 0.41429010033607483,
+    "f1": 0.3971269428730011,
+    "exact_match": 0.05611775442957878,
+    "pred_labels_per_sample": 1.990800380706787,
+    "true_labels_per_sample": 2.3376264572143555,
+    "mean_prob": 0.19140625,
+    "max_prob": 0.92431640625
+  },
+  {
+    "threshold": 0.55,
+    "precision": 0.4281662106513977,
+    "recall": 0.295768141746521,
+    "f1": 0.3254961371421814,
+    "exact_match": 0.059797607362270355,
+    "pred_labels_per_sample": 1.262189507484436,
+    "true_labels_per_sample": 2.3376264572143555,
+    "mean_prob": 0.19140625,
+    "max_prob": 0.92431640625
+  },
+  {
+    "threshold": 0.6,
+    "precision": 0.34084635972976685,
+    "recall": 0.20254525542259216,
+    "f1": 0.23931312561035156,
+    "exact_match": 0.05151794105768204,
+    "pred_labels_per_sample": 0.7138914465904236,
+    "true_labels_per_sample": 2.3376264572143555,
+    "mean_prob": 0.19140625,
+    "max_prob": 0.92431640625
+  },
+  {
+    "threshold": 0.65,
+    "precision": 0.24471020698547363,
+    "recall": 0.13308800756931305,
+    "f1": 0.16409076750278473,
+    "exact_match": 0.03587856516242027,
+    "pred_labels_per_sample": 0.415823370218277,
+    "true_labels_per_sample": 2.3376264572143555,
+    "mean_prob": 0.19140625,
+    "max_prob": 0.92431640625
+  },
+  {
+    "threshold": 0.7,
+    "precision": 0.16421343386173248,
+    "recall": 0.08233670890331268,
+    "f1": 0.10555043816566467,
+    "exact_match": 0.022999079897999763,
+    "pred_labels_per_sample": 0.23919042944908142,
+    "true_labels_per_sample": 2.3376264572143555,
+    "mean_prob": 0.19140625,
+    "max_prob": 0.92431640625
+  },
+  {
+    "threshold": 0.75,
+    "precision": 0.10027598589658737,
+    "recall": 0.05090463161468506,
+    "f1": 0.0647960752248764,
+    "exact_match": 0.016559338197112083,
+    "pred_labels_per_sample": 0.12695492804050446,
+    "true_labels_per_sample": 2.3376264572143555,
+    "mean_prob": 0.19140625,
+    "max_prob": 0.92431640625
+  },
+  {
+    "threshold": 0.8,
+    "precision": 0.06071757152676582,
+    "recall": 0.030818767845630646,
+    "f1": 0.039251767098903656,
+    "exact_match": 0.010119595564901829,
+    "pred_labels_per_sample": 0.06991720199584961,
+    "true_labels_per_sample": 2.3376264572143555,
+    "mean_prob": 0.19140625,
+    "max_prob": 0.92431640625
+  }
+]

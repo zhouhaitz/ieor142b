@@ -1,0 +1,15 @@
+{
+  "model_name": "hannah_scratch_cnn",
+  "seed": 42,
+  "img_size": 224,
+  "train_size": 8700,
+  "val_size": 1087,
+  "test_size": 1088,
+  "best_val_f1": 0.4504629075527191,
+  "test_f1": 0.4458201825618744,
+  "test_precision": 0.39259016513824463,
+  "test_recall": 0.5854779481887817,
+  "test_exact_match": 0.03125,
+  "num_epochs_run": 30,
+  "notes": "Scratch CNN; strict cleaned splits; strict poster cache; loss=weighted_bce; best_threshold=0.4; lr_scheduler=ReduceLROnPlateau(factor=0.3, patience=2, min_lr=1e-06); checkpoint selected by val_loss; no pretrained backbone."
+}
